@@ -1,0 +1,29 @@
+题目描述：
+Given a binary tree, find its maximum depth.
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+思路：本题要求二叉树深度，运用递归遍历左右子树，在进行比较左右深度大小，一层一层遍历，属于简单的数据结构算法树。
+
+解决方案: java、递归
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root == null) return 0;
+        else{
+            int m = maxDepth(root.left);
+            int n = maxDepth(root.right);
+            if(m > n) return m + 1;
+            else  return n + 1;
+        }
+    }
+}
+
+
